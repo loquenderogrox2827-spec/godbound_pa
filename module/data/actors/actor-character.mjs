@@ -251,10 +251,10 @@ export default class GodboundCharacter extends GodboundActorBase {
         this.resources.influence.value =
             this.resources.influence.max - influenceUsed
         this.health.max =
-            8 +
-            this.attributes.con.mod +
+            2 *
+            this.attributes.con.value +
             (this.details.level.value - 1) *
-                (4 + Math.ceil(this.attributes.con.mod / 2))
+                (this.attributes.con.mod + Math.ceil(this.attributes.con.value / 2))
         this.health.value = fns.bound(this.health.value, 0, this.health.max)
         this.prepareSaves()
     }
